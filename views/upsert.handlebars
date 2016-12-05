@@ -1,0 +1,86 @@
+<!--
+  Copyright 2016 Google, Inc.
+
+  Licensed to the Apache Software Foundation (ASF) under one or more contributor
+  license agreements. See the NOTICE file distributed with this work for
+  additional information regarding copyright ownership. The ASF licenses this
+  file to you under the Apache License, Version 2.0 (the "License"); you may not
+  use this file except in compliance with the License. You may obtain a copy of
+  the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  License for the specific language governing permissions and limitations under
+  the License.
+-->
+<head>
+    <meta charset="utf-8">
+</head>
+<section class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        {{#if order}}
+            <h2 class="mdl-card__title-text">항목 수정</h2>
+        {{else}}
+            <h2 class="mdl-card__title-text">항목 등록</h2>
+        {{/if}}
+    </div>
+    <form method="post" action="/upsert">
+      {{#if order}}
+      <input type="hidden" name="id" value="{{order.id}}" />
+      {{/if}}
+      <div class="mdl-card__supporting-text">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label block">
+          <input class="mdl-textfield__input" type="text" name="usageHistory" value="{{order.usageHistory}}">
+          <label class="mdl-textfield__label" for="sample1">내역</label>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label block">
+          <input class="mdl-textfield__input" type="text" name="usageDetail" id="usageDetail" value="{{order.usageDetail}}">
+          <label class="mdl-textfield__label" for="sample1">내역 상세</label>
+        </div>
+
+          <!--TODO : temporary edit, must be pixed-->
+          <div style="display:none;">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label block">
+              <!--<input class="mdl-textfield__input" type="text" pattern="[0-9]*" name="unitsOrdered"  value="{{order.unitsOrdered}}">-->
+              <input class="mdl-textfield__input" type="text" pattern="[0-9]*" name="unitsOrdered"  value="1">
+              <label  class="mdl-textfield__label" for="sample1">Units Ordered...</label>
+              <span class="mdl-textfield__error">Must be a positive integer</span>
+          </div>
+
+
+          </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label block">
+          <input class="mdl-textfield__input" type="text" pattern="[0-9]*(\.[0-9]+)?" name="usagePrice" value="{{order.usagePrice}}">
+          <label class="mdl-textfield__label" for="sample1">금액</label>
+          <span class="mdl-textfield__error">금액을 입력해야합니다.</span>
+        </div>
+
+        <!--{#if order}-->
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label block">
+          <input class="mdl-textfield__input" type="text" pattern="수입|지출|기타" list="statusOptions" name="status" value="{{order.status}}">
+          <!-- <input class="mdl-textfield__input" type="text" pattern="INCOME|SPEND|OTHER" list="statusOptions" name="status" value="{{order.status}}"> -->
+          <datalist id="statusOptions">
+            <option value="수입"/><option value="지출"/><option value="기타"/>
+            <!-- <option value="INCOME"/><option value="SPEND"/><option value="OTHER"/> -->
+          </datalist>
+            <label class="mdl-textfield__label" for="sample1">구분</label>
+            <!-- <span class="mdl-textfield__error">구분은 (INCOME/SPEND/OTHER) 중의 한 가지 값을 갖습니다.</span> -->
+            <span class="mdl-textfield__error">구분은 (수입/지출/기타) 중의 한 가지 값을 갖습니다.</span>
+        </div>
+        <!--{/if}-->
+      </div>
+      <div class="mdl-card__actions">
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised">
+          {{#if order}}저장{{else}}등록{{/if}}
+        </button>
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/">취소</a>
+      </div>
+    </form>
+  </div>
+</section>
