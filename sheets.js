@@ -194,7 +194,7 @@ function buildRowsForOrders(orders) {
                 case 'usagePrice':
                     return {
                         userEnteredValue: {
-                            numberValue: order.unitPrice
+                            numberValue: order.usagePrice
                         },
                         userEnteredFormat: {
                             numberFormat: {
