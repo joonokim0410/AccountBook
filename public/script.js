@@ -16,7 +16,10 @@
   License for the specific language governing permissions and limitations under
   the License.
 */
-
+//Bind datepicker.
+$( function() {
+  $( "#datepicker" ).datepicker();
+} );
 // Bind handlers when the page loads.
 $(function() {
   $('a.mdl-button').click(function() {
