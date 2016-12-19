@@ -18,7 +18,9 @@
 */
 //Bind datepicker.
 $( function() {
-  $( "#datepicker" ).datepicker();
+  $( "#datepicker" ).datepicker({
+    dateFormat: 'yy-mm-dd 00:00:00'
+  });
 } );
 // Bind handlers when the page loads.
 $(function() {
