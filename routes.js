@@ -115,7 +115,7 @@ router.post('/spreadsheets/:id/sync', function(req, res, next) {
   var accessToken = auth.split(' ')[1];
   var helper = new SheetsHelper(accessToken);
   Sequelize.Promise.all([
-    models.Spreadsheet.findById(req.params.id),
+    models.Spreadsheet.findById(req.params.date),
     models.Order.findAll()
   ]).then(function(results) {
     var spreadsheet = results[0];

@@ -21,6 +21,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Order = sequelize.define('Order', {
+    date: {type: DataTypes.STRING, allowNull: false},
     usageHistory: {type: DataTypes.STRING, allowNull: false},
     usageDetail: {type: DataTypes.STRING, allowNull: false},
     // unitsOrdered: {type: DataTypes.INTEGER, allowNull: false},
