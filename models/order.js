@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     // unitsOrdered: {type: DataTypes.INTEGER, allowNull: false},
     usagePrice: {type: DataTypes.FLOAT, allowNull: false},
     //status: {type: DataTypes.STRING, allowNull: false, defaultValue: 'INCOME'}
-    status: {type: DataTypes.TEXT, allowNull: false, defaultValue: 'INCOME'}
+    status: {type: DataTypes.TEXT, allowNull: false, defaultValue: '수입'}
 
     // customerName: {type: DataTypes.STRING, allowNull: false},
     // productCode: {type: DataTypes.STRING, allowNull: false},

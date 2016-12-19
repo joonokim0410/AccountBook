@@ -76,7 +76,7 @@ SheetsHelper.prototype.createSpreadsheet = function (title, callback) {
 //     { field: 'status', header: 'Status'}
 //   ];
 var COLUMNS = [
-    { field: 'id', header: '번호' },
+    { field: 'date', header: '날짜' },
     { field: 'usageHistory', header: '내역'},
     { field: 'usageDetail', header: '내역 상세' },
     //{ field: 'unitsOrdered', header: 'Units Ordered' },
